@@ -21,16 +21,12 @@ const Category = ({navigation}) => {
   
     setCategories( dataCategories ) ;
 
-
     dispatch(updateLoading()) ;
 
-
-   }
-
-
+  }
 
   useEffect(() => {
-   loadCategory();
+    loadCategory();
   }, [])
   
 
@@ -42,8 +38,6 @@ const Category = ({navigation}) => {
         renderItem = {({item}) => <ItemCategory category={item }/> }
         keyExtractor = {item => item.id}
       />
-
-
     </View>
   )
 }
