@@ -1,11 +1,16 @@
-import { View, Text } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Tuto from './tuto/Tuto'
+import Route from './src/screens/Route'
 
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 const App = () => {
-    return (
-        <Tuto /> 
-    )
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Route />
+      </GestureHandlerRootView>
+  )
 }
 
 export default App
+
+const styles = StyleSheet.create({})
