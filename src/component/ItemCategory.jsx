@@ -26,10 +26,8 @@ const ItemCategory = ({category}) => {
                             {
                                 backgroundColor: category.color != undefined ? category.color : "#000",
                             },
-                
                             ]}>
                     <Text style={styles.slideTitle}>{category.name}</Text>
-
                 </View>
             );
 };
