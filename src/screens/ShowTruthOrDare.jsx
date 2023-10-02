@@ -1,11 +1,10 @@
 import { View, Text } from 'react-native'
 import { useSelector} from 'react-redux'
 import { loadDataDareOrThruth } from '../commonjs/db'
+import { getRandomIndex } from '../commonjs/function'
 import React, { useEffect, useState } from 'react'
 
 import NextPlayer from '../component/button/NextPlayer'
-import { getRandomIndex } from '../commonjs/function'
-
 
 const ShowTruthOrDare = ({route}) => {
 

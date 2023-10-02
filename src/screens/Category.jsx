@@ -6,6 +6,25 @@ import { updateLoading } from '../redux/loading'
 import { loadData } from '../commonjs/db'
 import ItemCategory from '../component/ItemCategory'
 
+import AppIntroSlider from 'react-native-app-intro-slider';
+
+const slides = [
+  {
+    key: 'one',
+    title: 'Title 1',
+    text: 'Description.\nSay something cool',
+   // image: require('./assets/1.jpg'),
+    backgroundColor: '#880E4F',
+  },
+  {
+    key: 'two',
+    title: 'Title 2',
+    text: 'Other cool stuff',
+   // image: require('./assets/2.jpg'),
+    backgroundColor: '#01579B',
+  }
+];
+
 const Category = ({navigation}) => {
 
   const [categories, setCategories] = useState([]) ;
@@ -18,7 +37,7 @@ const Category = ({navigation}) => {
     dispatch(updateLoading()) ;
 
     const dataCategories = await loadData('category') ;
-  
+
     setCategories( dataCategories ) ;
 
     dispatch(updateLoading()) ;
@@ -32,13 +51,13 @@ const Category = ({navigation}) => {
 
 
   return (
-    <View>
-      <FlatList
+  
+      <AppIntroSlider
         data = {categories}
         renderItem = {({item}) => <ItemCategory category={item }/> }
         keyExtractor = {item => item.id}
       />
-    </View>
+
   )
 }
 
