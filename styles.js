@@ -38,8 +38,14 @@ export default  StyleSheet.create({
       textAlign: 'center',
     },
     slideTitle: {
-      fontSize: 22,
+      fontSize: 30,
       color: 'white',
       textAlign: 'center',
     },
+    button:{
+      marginTop: 14, 
+      backgroundColor: "transparent",
+      borderColor: "white",
+      borderWidth: 1,
+    }, 
   });

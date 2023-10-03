@@ -13,9 +13,6 @@ const ItemCategory = ({category}) => {
             <List.Item
                 title={category.name}
                 onPress={() => navigation.navigate('truthordare' , {id: category.id})}
-            
-            
-            
             />
             )*/
 
@@ -28,6 +25,9 @@ const ItemCategory = ({category}) => {
                             },
                             ]}>
                     <Text style={styles.slideTitle}>{category.name}</Text>
+                    <Button style={styles.button} mode="contained" onPress={() => navigation.navigate('truthordare' , {id: category.id})}>
+                        Press me
+                    </Button>  
                 </View>
             );
 };

@@ -36,7 +36,7 @@ const Category = ({navigation}) => {
 
     dispatch(updateLoading()) ;
 
-    const dataCategories = await loadData('category') ;
+    const dataCategories = await loadData('categories') ;
 
     setCategories( dataCategories ) ;
 
@@ -56,6 +56,7 @@ const Category = ({navigation}) => {
         data = {categories}
         renderItem = {({item}) => <ItemCategory category={item }/> }
         keyExtractor = {item => item.id}
+        showDoneButton = {false}
       />
 
   )

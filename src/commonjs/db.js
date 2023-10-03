@@ -23,13 +23,14 @@ export const loadData = async (collectionName) => {
 *** Cette fonction récupère la liste des questions et actions en fonction de l'identifiant de la category 
 ** params (id<string> : id category)
 */ 
-export const loadDataDareOrThruth = async (id) => {
+export const loadDataDareOrThruth = async (id, type) => {
 
     console.log('loadDataDareOrThruth', id)
 
     const snapShot = await firestore()
-                            .collection("DareOrTruth")
+                            .collection("TruthOrDare")
                             .where('category',"==", id)
+                            .where('type',"==", type)
                             .get()
 
     if(!snapShot.empty){

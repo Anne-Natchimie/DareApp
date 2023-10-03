@@ -8,14 +8,14 @@ import NextPlayer from '../component/button/NextPlayer'
 
 const ShowTruthOrDare = ({route}) => {
 
-  const { id } = route.params
+  const { id, type } = route.params
   const [showtod, setShowtod] = useState()
   const { players , position } = useSelector( state => state.player)
 
   const loadDareOrTruth = async () => {
 
     console.log('load')
-    const dataTruthOrDare = await loadDataDareOrThruth(id)
+    const dataTruthOrDare = await loadDataDareOrThruth(id, type)
     console.log('dataTruthOrDare', dataTruthOrDare)
     const index = getRandomIndex(0, dataTruthOrDare.length)
     console.log(index)
