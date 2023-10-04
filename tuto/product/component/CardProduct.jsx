@@ -8,7 +8,7 @@ const CardProduct = ({product}) => {
     return (
         <Card style={stylesProduct.cardProduct} contentStyle={stylesProduct.cardContent} >
             {/* <Card.Title title="Card Title" subtitle="Card Subtitle" left={LeftContent} /> */}
-                    <Card.Cover source={{ uri: product.thumbnail }} />
+                    <Card.Cover source={{ uri: product?.thumbnail }} />
                     <Card.Content>
                         <Text variant="titleLarge" style={stylesProduct.cardTitle}>{product.title}</Text>
                         <Text variant="bodyMedium" style={stylesProduct.cardPrice}>{product.price}</Text>

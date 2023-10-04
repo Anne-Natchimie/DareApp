@@ -1,4 +1,4 @@
-export const products = [
+export const dataProducts = [
     {
       id: 1,
       title: 'iPhone 9',
