@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initState = {
-                players  : [{id:1,name : 'Anne'},
-                            {id:2,name : 'Ludmilla'},
-                            {id:3,name : 'Betsy'},
-                            {id:4,name : 'Alyss-Aëlle'}],
+                players  : [{id : 1, name : 'Anne', tod : []},
+                            {id : 2, name : 'Ludmilla', tod : []},
+                            {id : 3, name : 'Betsy', tod : []},
+                            {id : 4, name : 'Alyss-Aëlle', tod : []}],
                 position : 0 ,
 }
 
@@ -12,14 +12,14 @@ export const player = createSlice({
     name:'player',
     initialState:initState,
     reducers:{
-        addPlayer:(state,action)=>{ //  ajouter un joueur
+        addPlayer:(state, action) => { //  ajouter un joueur
 
           // ajoute un élément à la fin d'un tableau et retourne la nouvelle taille du tableau.
             state.players.push(action.payload) ;
             return state ;
         },
 
-       delPlayer:(state,action)=>{ //  s un joueur
+       delPlayer:(state, action) => { //  s un joueur
 
             const newPlayers = state.players.filter(item=>item.id != action.payload.id) ;
 
@@ -31,22 +31,31 @@ export const player = createSlice({
             return newState ;
         },
 
-       resetPlayer:(state,action)=>{ //  vide la liste
+       resetPlayer:(state, action) => { //  vide la liste
 
             return initState ;
         },
 
-        nextPlayer:(state,action) =>{
+        nextPlayer:(state, action) => {
 
             console.log("action.payload" , action.payload)
-            const newState = { ...state , position: action.payload  }
+            const newState = { ...state , position: action.payload }
             return newState ;
 
         },
+        updateTod:(state, action) => {
+
+            // console.log("prev state", state)
+            console.log("action.payload", action.payload)
+            // console.log("first", state.players[state.position].tod)
+            state.players[state.position].tod.push(action.payload)
+            // console.log("next state", state)
+
+        }, 
     }
 
 })
 
-export const {  addPlayer, delPlayer , resetPlayer , nextPlayer } = player.actions ;
+export const { addPlayer, delPlayer , resetPlayer , nextPlayer, updateTod } = player.actions
 
 export default player.reducer;
