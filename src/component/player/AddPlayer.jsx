@@ -7,13 +7,11 @@ import { addPlayer } from '../../redux/player';
 const AddPlayer = () => {
 
     const [name, setName] = useState();
-
     const dispatch = useDispatch();
 
     // enregistrement du player
     const send = (value) => { 
-        
-        
+
         // formatage de la donnée à ajouter dans le store
         const newPlayer = {
             id      : Date.now() ,
@@ -21,14 +19,13 @@ const AddPlayer = () => {
             tod     : [], 
         }
 
-        //
+        // Ajouter un nouveau joueur
         dispatch(addPlayer(newPlayer))
 
         // vide mon text input
         setName('')
 
     }
-
 
     return (
     <>

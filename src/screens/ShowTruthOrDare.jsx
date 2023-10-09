@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native'
 import { useDispatch, useSelector} from 'react-redux'
-import { loadDataDareOrThruth } from '../commonjs/db'
+import { loadDataDareOrTruth, loadDataDareOrTruthTod } from '../commonjs/db'
 import { getRandomIndex } from '../commonjs/function'
 import React, { useEffect, useState } from 'react'
 
@@ -16,16 +16,37 @@ const ShowTruthOrDare = ({route}) => {
 
   const loadDareOrTruth = async () => {
 
-    // console.log('load')
-    const dataTruthOrDare = await loadDataDareOrThruth(id, type)
-    // console.log('dataTruthOrDare', dataTruthOrDare)
-    const index = getRandomIndex(0, dataTruthOrDare.length)
-    // console.log(index)
+    console.log("players", players[position].tod)
+    const { tod } = players[position]
 
-    setShowtod(dataTruthOrDare[index])
+    if (tod.length == 0) {
 
-    // Enregistrement du tod du player dans le store
-    dispatch(updateTod(dataTruthOrDare[index].id))
+      // console.log('load')
+      const dataTruthOrDare = await loadDataDareOrTruth(id, type)
+      // console.log('dataTruthOrDare', dataTruthOrDare)
+      const index = getRandomIndex(0, dataTruthOrDare.length)
+      // console.log(index)
+
+      setShowtod(dataTruthOrDare[index])
+
+      // Enregistrement du tod du player dans le store
+      dispatch(updateTod(dataTruthOrDare[index].id))
+
+
+    } else {
+
+      // console.log('load')
+      const dataTruthOrDare = await loadDataDareOrTruthTod(id, type, tod)
+      // console.log('dataTruthOrDare', dataTruthOrDare)
+      const index = getRandomIndex(0, dataTruthOrDare.length)
+      // console.log(index)
+
+      setShowtod(dataTruthOrDare[index])
+
+      // Enregistrement du tod du player dans le store
+      dispatch(updateTod(dataTruthOrDare[index].id))
+
+    }
 
   }
 

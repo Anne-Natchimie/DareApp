@@ -12,14 +12,16 @@ export const player = createSlice({
     name:'player',
     initialState:initState,
     reducers:{
-        addPlayer:(state, action) => { //  ajouter un joueur
+
+        addPlayer:(state, action) => { //  Ajoute un joueur
 
           // ajoute un élément à la fin d'un tableau et retourne la nouvelle taille du tableau.
-            state.players.push(action.payload) ;
-            return state ;
+            state.players.push(action.payload) 
+            return state 
+
         },
 
-       delPlayer:(state, action) => { //  s un joueur
+        delPlayer:(state, action) => { //  Supprime un joueur
 
             const newPlayers = state.players.filter(item=>item.id != action.payload.id) ;
 
@@ -28,22 +30,25 @@ export const player = createSlice({
                 position: state.position,
             }
 
-            return newState ;
+            return newState
+
         },
 
-       resetPlayer:(state, action) => { //  vide la liste
+        resetPlayer:(state, action) => { // Vide la liste
 
-            return initState ;
+            return initState
+
         },
 
-        nextPlayer:(state, action) => {
+        nextPlayer:(state, action) => { // Passe au joueur suivant
 
             console.log("action.payload" , action.payload)
             const newState = { ...state , position: action.payload }
             return newState ;
 
         },
-        updateTod:(state, action) => {
+
+        updateTod:(state, action) => { // Met à jour le tour des joueurs 
 
             // console.log("prev state", state)
             console.log("action.payload", action.payload)

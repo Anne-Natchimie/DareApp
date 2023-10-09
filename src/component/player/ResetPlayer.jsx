@@ -6,13 +6,11 @@ import { resetPlayer } from '../../redux/player'
 
 const ResetPlayer = () => {
 
-  const dispatch = useDispatch() ;
+  const dispatch = useDispatch()
 
   const reset = () => { 
-    
-    dispatch(resetPlayer()) ;
-
-   }
+    dispatch(resetPlayer())
+  }
 
   return (
   <Button onPress={reset} >Vider la liste</Button>

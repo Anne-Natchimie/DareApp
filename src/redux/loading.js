@@ -1,22 +1,22 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 
-
-
-const initialState = false ;
+const initialState = false
 
 export const loading = createSlice({
+
     name:'loading',
     initialState: initialState,
     reducers:{
-         updateLoading : (state,action ) => {
+        updateLoading : (state,action ) => {
 
-             return !state ;
+return !state
 
-         },
+        },
+
     }
 
 })
 
-export const { updateLoading } = loading.actions ; 
+export const { updateLoading } = loading.actions
 
 export default loading.reducer

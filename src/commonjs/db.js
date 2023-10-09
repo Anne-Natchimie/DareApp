@@ -20,12 +20,10 @@ export const loadData = async (collectionName) => {
 }
 
 /* 
-*** Cette fonction récupère la liste des questions et actions en fonction de l'identifiant de la category 
+*** Cette fonction récupère la liste des questions et actions en fonction de l'identifiant de la category et du type
 ** params (id<string> : id category)
 */ 
-export const loadDataDareOrThruth = async (id, type) => {
-
-    console.log('loadDataDareOrThruth', id)
+export const loadDataDareOrTruth = async (id, type) => {
 
     const snapShot = await firestore()
                             .collection("TruthOrDare")
@@ -38,6 +36,36 @@ export const loadDataDareOrThruth = async (id, type) => {
         const datas = snapShot.docs.map(doc=>{
                                     return { id:doc.id , ...doc.data() }
                                 })
+                                // .filter(item => item.category==id)
+
+            return datas 
+    } else {
+        return []
+    }
+
+}
+
+/* 
+*** Cette fonction récupère la liste des questions et actions en fonction de l'identifiant de la category et du type
+** params (id<string> : id category)
+*/ 
+export const loadDataDareOrTruthTod = async (id, type, tod) => {
+
+    console.log('tod', tod.length)
+
+    const snapShot = await firestore()
+                            .collection("TruthOrDare")
+                            .where('category',"==", id)
+                            .where('type',"==", type)
+                            .where(firestore.FieldPath.documentId(), "not-in", ["ok"])
+                            .get()
+
+    if(!snapShot.empty){
+
+        const datas = snapShot.docs.map(doc=>{
+                                    return { id:doc.id , ...doc.data() }
+                                })
+                                // .filter(item => item.category==id)
 
             return datas 
     } else {
