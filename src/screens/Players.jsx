@@ -11,8 +11,7 @@ import StartGame from '../component/button/StartGame';
 const Players = () => {
 
   const { players }  = useSelector(state=>state.player);
-   console.log('first' , players)
-   
+    console.log('first' , players)
 
 
   return (
@@ -27,7 +26,7 @@ const Players = () => {
       />
       <StartGame />
       <ResetPlayer />
-     
+
     </View>
   )
 }
