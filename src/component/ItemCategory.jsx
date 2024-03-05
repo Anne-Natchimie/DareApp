@@ -7,13 +7,12 @@ const ItemCategory = ({category}) => {
     const navigation = useNavigation();
     
     return(
+
             <List.Item
                 title={category.name}
                 onPress={() => navigation.navigate('truthordare' , {id: category.id})}
-            
-            
-            
             />
+
             )
 };
 

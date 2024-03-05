@@ -14,12 +14,12 @@ const StartGame = () => {
 
         navigation.navigate('category')
 
-     }
+      }
 
   return (
     <View>
       { /*players.length >= 1 && <Button   mode='outlined'>Lancer la partie</Button> */}
-   
+
       <Button   mode='outlined' disabled={!(players.length >= 1)} onPress={start} >Lancer la partie</Button>
     </View>
   )

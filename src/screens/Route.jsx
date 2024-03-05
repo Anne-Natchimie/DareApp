@@ -21,8 +21,8 @@ const Route = () => {
   return (
     <PaperProvider >
 
-  
             <NavigationContainer>
+
                 <Stack.Navigator screenOptions={{headerShown:false}} >
                     <Stack.Screen name='home'           component={Home} />
                     <Stack.Screen name='players'        component={Players} />
@@ -32,9 +32,11 @@ const Route = () => {
                 </Stack.Navigator>
 
                 <Modal visible={loading} contentContainerStyle={styles.modal}>
-                   <ActivityIndicator animating={ true } size={40} />
-                </Modal>                
+                    <ActivityIndicator animating={ true } size={40} />
+                </Modal>
+
             </NavigationContainer>
+
     </PaperProvider>
   )
 }

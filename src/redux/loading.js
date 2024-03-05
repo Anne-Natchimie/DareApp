@@ -8,11 +8,9 @@ export const loading = createSlice({
     name:'loading',
     initialState: initialState,
     reducers:{
-         updateLoading : (state,action ) => {
-
-             return !state ;
-
-         },
+            updateLoading : (state,action ) => {
+                return !state ;
+            },
     }
 
 })

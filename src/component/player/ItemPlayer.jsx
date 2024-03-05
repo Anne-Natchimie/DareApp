@@ -11,7 +11,7 @@ const ItemPlayer = ({player}) => {
   const supprimer = () => { 
     //console.log("player" , player)
     dispatch(delPlayer(player))
-   }
+  }
 
   return (
     <View >

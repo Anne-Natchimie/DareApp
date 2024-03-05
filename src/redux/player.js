@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-
 const initState = {
                 players  : [{id:1,name : 'Anne'},
                             {id:2,name : 'Ludmilla'},
@@ -23,8 +22,7 @@ export const player = createSlice({
        delPlayer:(state,action)=>{ //  s un joueur
 
             const newPlayers = state.players.filter(item=>item.id != action.payload.id) ;
-       
-      
+
             const newState = {
                 players : newPlayers,
                 position: state.position,
@@ -35,7 +33,6 @@ export const player = createSlice({
         },
        resetPlayer:(state,action)=>{ //  vide la liste
 
- 
             return initState ;
         },
         nextPlayer:(state,action) =>{
